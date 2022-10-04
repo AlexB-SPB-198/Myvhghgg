@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
 import com.example.myapplication11.Preference
+import com.example.myapplication11.R
 import com.example.myapplication11.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -39,7 +40,8 @@ class ProfileFragment : Fragment() {
         preference= Preference(requireContext())
         binding.etProfile.setText(preference.getName())
 
-        Glide.with(requireContext()).load(preference.getProfileImage()).into(binding.profileImage)
+        Glide.with(requireContext()).load(preference.getProfileImage()).
+        placeholder(R.drawable.ic_downward).into(binding.profileImage)
         binding.etProfile.setText(preference.getName())
         binding.etLastprofile.setText(preference.getLastName())
         binding.etAge.setText(preference.getAge())

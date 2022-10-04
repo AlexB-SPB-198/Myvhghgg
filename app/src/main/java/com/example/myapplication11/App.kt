@@ -9,8 +9,7 @@ class App:Application() {
     override fun onCreate() {
         super.onCreate()
         db=Room.databaseBuilder(this,TaskDataBase::class.java,"database").
-        allowMainThreadQueries()
-            .build()
+        allowMainThreadQueries().build()
     }
     companion object{
         public lateinit var db:TaskDataBase
