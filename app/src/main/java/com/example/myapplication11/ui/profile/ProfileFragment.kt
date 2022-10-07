@@ -46,7 +46,7 @@ class ProfileFragment : Fragment() {
 
         binding.btnSingout.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
-findNavController().navigate(R.id.authFragment)
+findNavController().navigate(R.id.action_navigation_profile_to_authFragment)
         }
 
 

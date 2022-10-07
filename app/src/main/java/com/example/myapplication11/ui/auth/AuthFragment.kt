@@ -58,7 +58,7 @@ class AuthFragment : Fragment() {
         val auth = FirebaseAuth.getInstance()
         auth.setLanguageCode("ru")
         val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(binding.etPhoneNumber.text.toString())       // Phone number to verify
+            .setPhoneNumber("+996${binding.etPhoneNumber.text.toString()}")       // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(requireActivity())
             .setCallbacks(object : OnVerificationStateChangedCallbacks() {

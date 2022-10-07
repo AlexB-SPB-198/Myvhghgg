@@ -19,6 +19,7 @@
         app:hintTextColor="@color/black"
         app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
+        app:prefixText="+996"
         tools:ignore="MissingConstraints">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone_number"
