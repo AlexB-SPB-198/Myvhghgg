@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.myapplication11.Preference
 import com.example.myapplication11.R
 import com.example.myapplication11.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
@@ -39,6 +41,18 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         preference= Preference(requireContext())
         binding.etProfile.setText(preference.getName())
+
+
+
+        binding.btnSingout.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+findNavController().navigate(R.id.authFragment)
+        }
+
+
+
+
+
 
         Glide.with(requireContext()).load(preference.getProfileImage()).
         placeholder(R.drawable.ic_downward).into(binding.profileImage)

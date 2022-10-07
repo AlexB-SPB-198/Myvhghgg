@@ -8,4 +8,6 @@
     <string name="delete_massege">Удалить?</string>
     <string name="yes_messege">Yes</string>
     <string name="no_messege">No</string>
+    <string name="input_phone_number">Введите номер телефона</string>
+    <string name="input_send_code">Введите код</string>
 </resources>

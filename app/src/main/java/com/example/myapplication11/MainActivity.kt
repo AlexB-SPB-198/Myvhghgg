@@ -11,11 +11,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication11.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity() : AppCompatActivity(), Parcelable {
 
     private lateinit var binding: ActivityMainBinding
-
+    private val auth = FirebaseAuth.getInstance()
     constructor(parcel: Parcel) : this() {
 
     }
@@ -38,6 +39,8 @@ class MainActivity() : AppCompatActivity(), Parcelable {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         if(!Preference(this).getIsShowBoarding()){
             navController.navigate(R.id.onBoardingFragment)
+        }else if(auth.currentUser==null){
+            navController.navigate(R.id.authFragment)
         }
         navController.navigate(R.id.onBoardingFragment)
         val appBarConfiguration = AppBarConfiguration(
@@ -46,7 +49,8 @@ class MainActivity() : AppCompatActivity(), Parcelable {
                 R.id.navigation_dashboard,
                 R.id.navigation_notifications,
                 R.id.taskFragment,
-                R.id.navigation_profile
+                R.id.navigation_profile,
+                R.id.authFragment
 
             )
         )

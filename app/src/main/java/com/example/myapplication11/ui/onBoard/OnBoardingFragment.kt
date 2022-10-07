@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.myapplication11.Preference
+import com.example.myapplication11.R
 import com.example.myapplication11.databinding.FragmentOnBoardingBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class OnBoardingFragment : Fragment() {
 
     private lateinit var binding: FragmentOnBoardingBinding
-
+    private val auth = FirebaseAuth.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +28,11 @@ class OnBoardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val adapter = OnBoardAdapter(){
             Preference(requireContext()).showBoarding()
+            if(auth.currentUser!=null){
             findNavController().navigateUp()
+            }else{
+                findNavController().navigate(R.id.authFragment)
+            }
         }
 
         binding.onBoarding.adapter = adapter

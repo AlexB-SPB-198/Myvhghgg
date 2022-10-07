@@ -57,6 +57,16 @@
         android:background="@drawable/background"
         android:layout_marginTop="20dp"
         />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_singout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SingOut"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/red"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
